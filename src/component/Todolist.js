@@ -13,10 +13,20 @@ function Todolist() {
     );
   };
 
+  const onToggle = (id) => {
+    setList(
+      list.map((todo) => {
+        console.log(todo);
+        return todo.id === id ? { ...todo, checked: !todo.checked } : todo;
+      })
+    );
+  };
+
   function listUp() {
     let newList = {
       id: list.length,
       content: content,
+      checked: false,
     };
 
     setList([newList, ...list]);
@@ -49,7 +59,9 @@ function Todolist() {
         <div className="todolist-show">
           <ul className="todolist-box">
             {list.map((todo) => {
-              return <Todoitem todo={todo} onRemove={onRemove} />;
+              return (
+                <Todoitem todo={todo} onRemove={onRemove} onToggle={onToggle} />
+              );
             })}
           </ul>
         </div>
