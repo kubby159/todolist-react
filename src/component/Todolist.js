@@ -51,7 +51,7 @@ function Todolist() {
           </div>
           <div className="addList">
             <button className="btn" onClick={listUp}>
-              목록추가
+              +Add New
             </button>
           </div>
         </div>
